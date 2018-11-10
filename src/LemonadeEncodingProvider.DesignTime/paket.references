@@ -4,5 +4,5 @@ File:ProvidedTypes.fs
 FSharp.Core
 
 # put any package references here
-System.Net.Http
+SharpYaml
 # System.Text.Encoding.CodePages framework: netstandard2.0,netcoreapp2.0

@@ -2,13 +2,12 @@ namespace MyNamespace
 
 open System
 
-// Put any utilities here
+// // Put any utilities here
 [<AutoOpen>]
 module Utilities = 
-    open System.Net.Http
-
-    let toContentString s =
-        new StringContent(s, System.Text.Encoding.UTF8, "application/json")
+    let toYaml o =
+        let serializer = SharpYaml.Serialization.Serializer()
+        serializer.Serialize(o)
 
 // Put any runtime constructs here
 type DataSource(filename:string) = 

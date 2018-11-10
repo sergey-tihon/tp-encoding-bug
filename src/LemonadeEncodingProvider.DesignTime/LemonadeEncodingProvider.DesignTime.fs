@@ -9,7 +9,6 @@ open FSharp.Core.CompilerServices
 open MyNamespace
 open ProviderImplementation
 open ProviderImplementation.ProvidedTypes
-open System.Net.Http
 
 // Put any utility helpers here
 [<AutoOpen>]
@@ -33,13 +32,14 @@ type BasicGenerativeProvider (config : TypeProviderConfig) as this =
         let ctor = ProvidedConstructor([], invokeCode = fun args -> <@@ "My internal state" :> obj @@>)
         myType.AddMember(ctor)
 
-        let meth = ProvidedMethod("GetContent", [ProvidedParameter("s", typeof<string>)], 
-                    typeof<StringContent>, isStatic=false, 
+        let meth = ProvidedMethod("ToYaml", [ProvidedParameter("o", typeof<obj>)], 
+                    typeof<string>, isStatic=false, 
                     invokeCode = (fun args -> 
                         <@@
-                           let s = (%%args.[1] : string)
-                           new StringContent(s, System.Text.Encoding.UTF8, "application/json")
-                           //Utilities.toContentString s
+                           let o = (%%args.[1] : obj)
+                           let serializer = SharpYaml.Serialization.Serializer()
+                           serializer.Serialize(o)
+                           //Utilities.toYaml o
                         @@>))
         myType.AddMember(meth)
         asm.AddTypes [ myType ]

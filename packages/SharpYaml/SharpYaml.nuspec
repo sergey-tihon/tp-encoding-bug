@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>SharpYaml</id>
+    <version>1.6.4</version>
+    <authors>Alexandre Mutel</authors>
+    <owners>Alexandre Mutel</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/xoofx/SharpYaml/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/xoofx/SharpYaml</projectUrl>
+    <description>A YAML portable .NET library. providing parsing and serialization of object graphs, compatible with CoreCLR.</description>
+    <releaseNotes>https://github.com/xoofx/SharpYaml/blob/master/changelog.md</releaseNotes>
+    <copyright>Alexandre Mutel</copyright>
+    <tags>yaml parser yml</tags>
+    <repository type="git" url="git://github.com/xoofx/SharpYaml" commit="1743b8a78de7756a5b5aca7e297ca83bfdf5c86b" />
+    <dependencies>
+      <group targetFramework=".NETFramework3.5" />
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework=".NETPortable4.0-Profile328" />
+      <group targetFramework=".NETStandard1.3">
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="System.Reflection.TypeExtensions" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard1.6">
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="System.Reflection.TypeExtensions" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Reflection.TypeExtensions" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="mscorlib" targetFramework=".NETFramework3.5, .NETPortable4.0-Profile328" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework3.5, .NETPortable4.0-Profile328" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework3.5, .NETPortable4.0-Profile328" />
+    </frameworkAssemblies>
+  </metadata>
+</package>
